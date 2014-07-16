@@ -1,0 +1,10 @@
+NSString *const kRSSKey = @"rss";
+NSString *const kChannelKey = @"channel";
+NSString *const kCategoryKey = @"category";
+NSString *const kCopyrightKey = @"copyright";
+NSString *const kDescriptionKey = @"description";
+NSString *const kItemsKey = @"item";
+NSString *const kPublicationDateKey = @"pubDate";
+NSString *const kLinkKey = @"link";
+NSString *const kTitleKey = @"title";
+NSString *const kTextKey = @"text";

@@ -1,0 +1,500 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A3663521197581E2008F5B44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3663520197581E2008F5B44 /* Foundation.framework */; };
+		A3663523197581E2008F5B44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3663522197581E2008F5B44 /* CoreGraphics.framework */; };
+		A3663525197581E2008F5B44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3663524197581E2008F5B44 /* UIKit.framework */; };
+		A366352B197581E2008F5B44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3663529197581E2008F5B44 /* InfoPlist.strings */; };
+		A366352D197581E2008F5B44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A366352C197581E2008F5B44 /* main.m */; };
+		A3663531197581E2008F5B44 /* DFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3663530197581E2008F5B44 /* DFAppDelegate.m */; };
+		A366353A197581E2008F5B44 /* DFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3663539197581E2008F5B44 /* DFViewController.m */; };
+		A366353C197581E2008F5B44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A366353B197581E2008F5B44 /* Images.xcassets */; };
+		A3663543197581E2008F5B44 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3663542197581E2008F5B44 /* XCTest.framework */; };
+		A3663544197581E2008F5B44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3663520197581E2008F5B44 /* Foundation.framework */; };
+		A3663545197581E2008F5B44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3663524197581E2008F5B44 /* UIKit.framework */; };
+		A366354D197581E2008F5B44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A366354B197581E2008F5B44 /* InfoPlist.strings */; };
+		A366354F197581E2008F5B44 /* AppleHotNewsReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A366354E197581E2008F5B44 /* AppleHotNewsReaderTests.m */; };
+		A366355A1975878E008F5B44 /* DFXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A36635591975878E008F5B44 /* DFXMLParser.m */; };
+		A366355D19759686008F5B44 /* DFRSSChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = A366355C19759686008F5B44 /* DFRSSChannel.m */; };
+		A36635601975A859008F5B44 /* DFRSSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A366355F1975A859008F5B44 /* DFRSSItem.m */; };
+		A36635631975A86B008F5B44 /* DFBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A36635621975A86B008F5B44 /* DFBaseObject.m */; };
+		A3C629D51976D8E70091A944 /* DFDefs.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C629D41976D8E70091A944 /* DFDefs.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A3663546197581E2008F5B44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3663515197581E2008F5B44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A366351C197581E2008F5B44;
+			remoteInfo = AppleHotNewsReader;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A366351D197581E2008F5B44 /* AppleHotNewsReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleHotNewsReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3663520197581E2008F5B44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A3663522197581E2008F5B44 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A3663524197581E2008F5B44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A3663528197581E2008F5B44 /* AppleHotNewsReader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppleHotNewsReader-Info.plist"; sourceTree = "<group>"; };
+		A366352A197581E2008F5B44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A366352C197581E2008F5B44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A366352E197581E2008F5B44 /* AppleHotNewsReader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppleHotNewsReader-Prefix.pch"; sourceTree = "<group>"; };
+		A366352F197581E2008F5B44 /* DFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DFAppDelegate.h; sourceTree = "<group>"; };
+		A3663530197581E2008F5B44 /* DFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DFAppDelegate.m; sourceTree = "<group>"; };
+		A3663538197581E2008F5B44 /* DFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DFViewController.h; sourceTree = "<group>"; };
+		A3663539197581E2008F5B44 /* DFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DFViewController.m; sourceTree = "<group>"; };
+		A366353B197581E2008F5B44 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A3663541197581E2008F5B44 /* AppleHotNewsReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleHotNewsReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3663542197581E2008F5B44 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A366354A197581E2008F5B44 /* AppleHotNewsReaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppleHotNewsReaderTests-Info.plist"; sourceTree = "<group>"; };
+		A366354C197581E2008F5B44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A366354E197581E2008F5B44 /* AppleHotNewsReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppleHotNewsReaderTests.m; sourceTree = "<group>"; };
+		A36635581975878E008F5B44 /* DFXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFXMLParser.h; sourceTree = "<group>"; };
+		A36635591975878E008F5B44 /* DFXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFXMLParser.m; sourceTree = "<group>"; };
+		A366355B19759686008F5B44 /* DFRSSChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFRSSChannel.h; sourceTree = "<group>"; };
+		A366355C19759686008F5B44 /* DFRSSChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFRSSChannel.m; sourceTree = "<group>"; };
+		A366355E1975A859008F5B44 /* DFRSSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFRSSItem.h; sourceTree = "<group>"; };
+		A366355F1975A859008F5B44 /* DFRSSItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFRSSItem.m; sourceTree = "<group>"; };
+		A36635611975A86B008F5B44 /* DFBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFBaseObject.h; sourceTree = "<group>"; };
+		A36635621975A86B008F5B44 /* DFBaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFBaseObject.m; sourceTree = "<group>"; };
+		A3C629D31976D8E70091A944 /* DFDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFDefs.h; sourceTree = "<group>"; };
+		A3C629D41976D8E70091A944 /* DFDefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFDefs.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A366351A197581E2008F5B44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3663523197581E2008F5B44 /* CoreGraphics.framework in Frameworks */,
+				A3663525197581E2008F5B44 /* UIKit.framework in Frameworks */,
+				A3663521197581E2008F5B44 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A366353E197581E2008F5B44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3663543197581E2008F5B44 /* XCTest.framework in Frameworks */,
+				A3663545197581E2008F5B44 /* UIKit.framework in Frameworks */,
+				A3663544197581E2008F5B44 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A3663514197581E2008F5B44 = {
+			isa = PBXGroup;
+			children = (
+				A3663526197581E2008F5B44 /* AppleHotNewsReader */,
+				A3663548197581E2008F5B44 /* AppleHotNewsReaderTests */,
+				A366351F197581E2008F5B44 /* Frameworks */,
+				A366351E197581E2008F5B44 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A366351E197581E2008F5B44 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A366351D197581E2008F5B44 /* AppleHotNewsReader.app */,
+				A3663541197581E2008F5B44 /* AppleHotNewsReaderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A366351F197581E2008F5B44 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3663520197581E2008F5B44 /* Foundation.framework */,
+				A3663522197581E2008F5B44 /* CoreGraphics.framework */,
+				A3663524197581E2008F5B44 /* UIKit.framework */,
+				A3663542197581E2008F5B44 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3663526197581E2008F5B44 /* AppleHotNewsReader */ = {
+			isa = PBXGroup;
+			children = (
+				A3C629D31976D8E70091A944 /* DFDefs.h */,
+				A3C629D41976D8E70091A944 /* DFDefs.m */,
+				A366355B19759686008F5B44 /* DFRSSChannel.h */,
+				A366355C19759686008F5B44 /* DFRSSChannel.m */,
+				A366355E1975A859008F5B44 /* DFRSSItem.h */,
+				A366355F1975A859008F5B44 /* DFRSSItem.m */,
+				A36635611975A86B008F5B44 /* DFBaseObject.h */,
+				A36635621975A86B008F5B44 /* DFBaseObject.m */,
+				A366352F197581E2008F5B44 /* DFAppDelegate.h */,
+				A3663530197581E2008F5B44 /* DFAppDelegate.m */,
+				A3663538197581E2008F5B44 /* DFViewController.h */,
+				A3663539197581E2008F5B44 /* DFViewController.m */,
+				A36635581975878E008F5B44 /* DFXMLParser.h */,
+				A36635591975878E008F5B44 /* DFXMLParser.m */,
+				A366353B197581E2008F5B44 /* Images.xcassets */,
+				A3663527197581E2008F5B44 /* Supporting Files */,
+			);
+			path = AppleHotNewsReader;
+			sourceTree = "<group>";
+		};
+		A3663527197581E2008F5B44 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A3663528197581E2008F5B44 /* AppleHotNewsReader-Info.plist */,
+				A3663529197581E2008F5B44 /* InfoPlist.strings */,
+				A366352C197581E2008F5B44 /* main.m */,
+				A366352E197581E2008F5B44 /* AppleHotNewsReader-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A3663548197581E2008F5B44 /* AppleHotNewsReaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				A366354E197581E2008F5B44 /* AppleHotNewsReaderTests.m */,
+				A3663549197581E2008F5B44 /* Supporting Files */,
+			);
+			path = AppleHotNewsReaderTests;
+			sourceTree = "<group>";
+		};
+		A3663549197581E2008F5B44 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A366354A197581E2008F5B44 /* AppleHotNewsReaderTests-Info.plist */,
+				A366354B197581E2008F5B44 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A366351C197581E2008F5B44 /* AppleHotNewsReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3663552197581E2008F5B44 /* Build configuration list for PBXNativeTarget "AppleHotNewsReader" */;
+			buildPhases = (
+				A3663519197581E2008F5B44 /* Sources */,
+				A366351A197581E2008F5B44 /* Frameworks */,
+				A366351B197581E2008F5B44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AppleHotNewsReader;
+			productName = AppleHotNewsReader;
+			productReference = A366351D197581E2008F5B44 /* AppleHotNewsReader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A3663540197581E2008F5B44 /* AppleHotNewsReaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3663555197581E2008F5B44 /* Build configuration list for PBXNativeTarget "AppleHotNewsReaderTests" */;
+			buildPhases = (
+				A366353D197581E2008F5B44 /* Sources */,
+				A366353E197581E2008F5B44 /* Frameworks */,
+				A366353F197581E2008F5B44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A3663547197581E2008F5B44 /* PBXTargetDependency */,
+			);
+			name = AppleHotNewsReaderTests;
+			productName = AppleHotNewsReaderTests;
+			productReference = A3663541197581E2008F5B44 /* AppleHotNewsReaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A3663515197581E2008F5B44 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DF;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = df;
+				TargetAttributes = {
+					A3663540197581E2008F5B44 = {
+						TestTargetID = A366351C197581E2008F5B44;
+					};
+				};
+			};
+			buildConfigurationList = A3663518197581E2008F5B44 /* Build configuration list for PBXProject "AppleHotNewsReader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A3663514197581E2008F5B44;
+			productRefGroup = A366351E197581E2008F5B44 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A366351C197581E2008F5B44 /* AppleHotNewsReader */,
+				A3663540197581E2008F5B44 /* AppleHotNewsReaderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A366351B197581E2008F5B44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A366353C197581E2008F5B44 /* Images.xcassets in Resources */,
+				A366352B197581E2008F5B44 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A366353F197581E2008F5B44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A366354D197581E2008F5B44 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A3663519197581E2008F5B44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A366355A1975878E008F5B44 /* DFXMLParser.m in Sources */,
+				A366355D19759686008F5B44 /* DFRSSChannel.m in Sources */,
+				A3663531197581E2008F5B44 /* DFAppDelegate.m in Sources */,
+				A36635601975A859008F5B44 /* DFRSSItem.m in Sources */,
+				A366353A197581E2008F5B44 /* DFViewController.m in Sources */,
+				A366352D197581E2008F5B44 /* main.m in Sources */,
+				A36635631975A86B008F5B44 /* DFBaseObject.m in Sources */,
+				A3C629D51976D8E70091A944 /* DFDefs.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A366353D197581E2008F5B44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A366354F197581E2008F5B44 /* AppleHotNewsReaderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A3663547197581E2008F5B44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A366351C197581E2008F5B44 /* AppleHotNewsReader */;
+			targetProxy = A3663546197581E2008F5B44 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A3663529197581E2008F5B44 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A366352A197581E2008F5B44 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A366354B197581E2008F5B44 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A366354C197581E2008F5B44 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A3663550197581E2008F5B44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A3663551197581E2008F5B44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A3663553197581E2008F5B44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AppleHotNewsReader/AppleHotNewsReader-Prefix.pch";
+				INFOPLIST_FILE = "AppleHotNewsReader/AppleHotNewsReader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A3663554197581E2008F5B44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AppleHotNewsReader/AppleHotNewsReader-Prefix.pch";
+				INFOPLIST_FILE = "AppleHotNewsReader/AppleHotNewsReader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A3663556197581E2008F5B44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AppleHotNewsReader.app/AppleHotNewsReader";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AppleHotNewsReader/AppleHotNewsReader-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AppleHotNewsReaderTests/AppleHotNewsReaderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A3663557197581E2008F5B44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AppleHotNewsReader.app/AppleHotNewsReader";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AppleHotNewsReader/AppleHotNewsReader-Prefix.pch";
+				INFOPLIST_FILE = "AppleHotNewsReaderTests/AppleHotNewsReaderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A3663518197581E2008F5B44 /* Build configuration list for PBXProject "AppleHotNewsReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3663550197581E2008F5B44 /* Debug */,
+				A3663551197581E2008F5B44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3663552197581E2008F5B44 /* Build configuration list for PBXNativeTarget "AppleHotNewsReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3663553197581E2008F5B44 /* Debug */,
+				A3663554197581E2008F5B44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3663555197581E2008F5B44 /* Build configuration list for PBXNativeTarget "AppleHotNewsReaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3663556197581E2008F5B44 /* Debug */,
+				A3663557197581E2008F5B44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A3663515197581E2008F5B44 /* Project object */;
+}
