@@ -20,13 +20,13 @@
     static dispatch_once_t onceToken;
     static DFConnector *_connector = nil;
     dispatch_once(&onceToken, ^{
-        _connector = [[DFConnector allocHidden]init];
+        _connector = [[DFConnector allocHidden] init];
     });
     return _connector;
 }
 
 +(id)alloc {
-    NSAssert(YES, @"You are not allowed to use ""alloc"", user ""sharedInstance instead""");
+    NSAssert(NO, @"You are not allowed to use ""alloc"", user ""sharedInstance instead""");
     return nil;
 }
 
@@ -79,7 +79,7 @@
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSError *parseError;
+    NSError *parseError = nil;
     id responseObject;
     if (!self.isLoadingHTML) {
         responseObject = [DFXMLParser dictionaryForXMLData:self.dataBuffer
