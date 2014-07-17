@@ -63,12 +63,15 @@ static NSString *const cellId = @"feed.cell.id";
 #pragma mark - ConnectorDelegate
 
 -(void)connector:(DFConnector *)connector didFinishLoadingWithObject:(id)object error:(NSError *)error {
-//    if (!error) {
+    if (object) {
         DFRSSChannel *channel = [[DFRSSChannel alloc]initWithDictionary:object];
         self.currentChannel = channel;
         [channel release];
         [self.feedTableView reloadData];
-//    }
+    }
+    else if (error) {
+        
+    }
 }
 
 #pragma mark - UITableViewDataSource 
@@ -90,17 +93,33 @@ static NSString *const cellId = @"feed.cell.id";
     DFRSSItem *item = [self.currentChannel.items objectAtIndex:indexPath.row];
     cell.textLabel.text = item.title;
     cell.textLabel.numberOfLines = 0;
-    cell.detailTextLabel.text = item.publicationDateString;
+    cell.detailTextLabel.numberOfLines = 0.0f;
+    cell.detailTextLabel.text = item.descriptionText;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     DFRSSItem *item = [self.currentChannel.items objectAtIndex:indexPath.row];
-    CGSize suggestedSize = [item.title sizeWithFont:[UIFont systemFontOfSize:18.0f]
-                                                constrainedToSize:CGSizeMake(CGRectGetWidth(tableView.bounds) - 45, FLT_MAX)
-                                                    lineBreakMode:NSLineBreakByWordWrapping];
-    return MAX(self.feedTableView.rowHeight, suggestedSize.height + 20.0f);
+    CGSize suggestedTextLabelSize;
+    CGSize suggestedDetailTextLabelSize;
+    if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_6_1) {
+        suggestedTextLabelSize = [item.title sizeWithFont:[UIFont boldSystemFontOfSize:18.0f]
+                               constrainedToSize:CGSizeMake(CGRectGetWidth(tableView.bounds) - 45, FLT_MAX)
+                                   lineBreakMode:NSLineBreakByWordWrapping];
+        suggestedDetailTextLabelSize = [item.descriptionText sizeWithFont:[UIFont boldSystemFontOfSize:12.0f]
+                                                        constrainedToSize:CGSizeMake(CGRectGetWidth(tableView.bounds) - 45, FLT_MAX)
+                                                            lineBreakMode:NSLineBreakByWordWrapping];
+    }
+    else {
+        suggestedTextLabelSize = [item.title sizeWithFont:[UIFont systemFontOfSize:18.0f]
+                               constrainedToSize:CGSizeMake(CGRectGetWidth(tableView.bounds) - 45, FLT_MAX)
+                                   lineBreakMode:NSLineBreakByWordWrapping];
+        suggestedDetailTextLabelSize = [item.descriptionText sizeWithFont:[UIFont systemFontOfSize:12.0f]
+                                                        constrainedToSize:CGSizeMake(CGRectGetWidth(tableView.bounds) - 45, FLT_MAX)
+                                                            lineBreakMode:NSLineBreakByWordWrapping];
+    }
+    return MAX(self.feedTableView.rowHeight, suggestedTextLabelSize.height + suggestedDetailTextLabelSize.height + 20.0f);
 }
 
 #pragma mark - UITableViewDelegate

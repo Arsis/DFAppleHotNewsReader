@@ -49,6 +49,8 @@
     self.navigationItem.title = self.currentRSSItem.title;
     UIWebView *webView = [[UIWebView alloc]init];
     webView.delegate = self;
+    webView.multipleTouchEnabled = YES;
+    webView.scalesPageToFit = YES;
     webView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:webView];
     self.webView = webView;
