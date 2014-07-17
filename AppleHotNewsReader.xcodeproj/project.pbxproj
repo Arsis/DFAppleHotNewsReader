@@ -25,6 +25,8 @@
 		A36635601975A859008F5B44 /* DFRSSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A366355F1975A859008F5B44 /* DFRSSItem.m */; };
 		A36635631975A86B008F5B44 /* DFBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A36635621975A86B008F5B44 /* DFBaseObject.m */; };
 		A3C629D51976D8E70091A944 /* DFDefs.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C629D41976D8E70091A944 /* DFDefs.m */; };
+		FB2A829B1977CE2900BE90A2 /* DFConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2A829A1977CE2900BE90A2 /* DFConnector.m */; };
+		FB2A829E1977EC5D00BE90A2 /* DFRSSItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2A829D1977EC5D00BE90A2 /* DFRSSItemDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,10 @@
 		A36635621975A86B008F5B44 /* DFBaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFBaseObject.m; sourceTree = "<group>"; };
 		A3C629D31976D8E70091A944 /* DFDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFDefs.h; sourceTree = "<group>"; };
 		A3C629D41976D8E70091A944 /* DFDefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFDefs.m; sourceTree = "<group>"; };
+		FB2A82991977CE2900BE90A2 /* DFConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFConnector.h; sourceTree = "<group>"; };
+		FB2A829A1977CE2900BE90A2 /* DFConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFConnector.m; sourceTree = "<group>"; };
+		FB2A829C1977EC5D00BE90A2 /* DFRSSItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFRSSItemDetailViewController.h; sourceTree = "<group>"; };
+		FB2A829D1977EC5D00BE90A2 /* DFRSSItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFRSSItemDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,10 @@
 		A3663526197581E2008F5B44 /* AppleHotNewsReader */ = {
 			isa = PBXGroup;
 			children = (
+				FB2A82991977CE2900BE90A2 /* DFConnector.h */,
+				FB2A829A1977CE2900BE90A2 /* DFConnector.m */,
+				FB2A829C1977EC5D00BE90A2 /* DFRSSItemDetailViewController.h */,
+				FB2A829D1977EC5D00BE90A2 /* DFRSSItemDetailViewController.m */,
 				A3C629D31976D8E70091A944 /* DFDefs.h */,
 				A3C629D41976D8E70091A944 /* DFDefs.m */,
 				A366355B19759686008F5B44 /* DFRSSChannel.h */,
@@ -272,7 +282,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A366355A1975878E008F5B44 /* DFXMLParser.m in Sources */,
+				FB2A829E1977EC5D00BE90A2 /* DFRSSItemDetailViewController.m in Sources */,
 				A366355D19759686008F5B44 /* DFRSSChannel.m in Sources */,
+				FB2A829B1977CE2900BE90A2 /* DFConnector.m in Sources */,
 				A3663531197581E2008F5B44 /* DFAppDelegate.m in Sources */,
 				A36635601975A859008F5B44 /* DFRSSItem.m in Sources */,
 				A366353A197581E2008F5B44 /* DFViewController.m in Sources */,
@@ -398,11 +410,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dmitry Fedorov (Z383BEZ96R)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppleHotNewsReader/AppleHotNewsReader-Prefix.pch";
 				INFOPLIST_FILE = "AppleHotNewsReader/AppleHotNewsReader-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "FA951D43-FE5E-4F59-879B-E308476A3BE2";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -414,11 +428,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dmitry Fedorov (Z383BEZ96R)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppleHotNewsReader/AppleHotNewsReader-Prefix.pch";
 				INFOPLIST_FILE = "AppleHotNewsReader/AppleHotNewsReader-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "FA951D43-FE5E-4F59-879B-E308476A3BE2";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};

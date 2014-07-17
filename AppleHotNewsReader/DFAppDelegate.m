@@ -14,10 +14,13 @@
 {
     DFViewController *viewController = [[DFViewController alloc]init];
     UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:viewController];
+    UIWindow *window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = window;
     [self.window setRootViewController:navigationController];
     [self.window makeKeyAndVisible];
     [viewController release];
     [navigationController release];
+    [window release];
     // Override point for customization after application launch.
     return YES;
 }

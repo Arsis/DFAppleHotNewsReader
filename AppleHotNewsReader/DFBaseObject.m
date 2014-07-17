@@ -12,7 +12,7 @@
 
 -(id)initWithDictionary:(NSDictionary *)dictionary {
     if (self = [super init]) {
-        _descriptionText = [dictionary objectForKey:kDescriptionKey];
+        _descriptionText = [dictionary objectForKey:kDescriptionKey][kTextKey];
     }
     return self;
 }

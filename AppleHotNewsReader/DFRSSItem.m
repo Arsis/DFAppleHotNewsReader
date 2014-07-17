@@ -12,11 +12,15 @@
 
 -(id)initWithDictionary:(NSDictionary *)dictionary {
     if (self = [super initWithDictionary:dictionary]) {
-        _link = [dictionary objectForKey:kLinkKey][kTextKey];
-        _publicationDateString = [dictionary objectForKey:kPublicationDateKey][kTextKey];;
-        _title = [dictionary objectForKey:kTitleKey][kTextKey];
+        _link = [[[dictionary objectForKey:kLinkKey][kTextKey] stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]  retain];
+        _publicationDateString = [[[dictionary objectForKey:kPublicationDateKey][kTextKey] stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]] retain];
+        _title = [[[dictionary objectForKey:kTitleKey][kTextKey] stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]] retain];
     }
     return self;
+}
+
+-(void)updateWithDictionary:(NSDictionary *)dictionary {
+    
 }
 
 -(void)dealloc {
