@@ -131,24 +131,8 @@
 		A3663526197581E2008F5B44 /* AppleHotNewsReader */ = {
 			isa = PBXGroup;
 			children = (
-				FB2A82991977CE2900BE90A2 /* DFConnector.h */,
-				FB2A829A1977CE2900BE90A2 /* DFConnector.m */,
-				FB2A829C1977EC5D00BE90A2 /* DFRSSItemDetailViewController.h */,
-				FB2A829D1977EC5D00BE90A2 /* DFRSSItemDetailViewController.m */,
-				A3C629D31976D8E70091A944 /* DFDefs.h */,
-				A3C629D41976D8E70091A944 /* DFDefs.m */,
-				A366355B19759686008F5B44 /* DFRSSChannel.h */,
-				A366355C19759686008F5B44 /* DFRSSChannel.m */,
-				A366355E1975A859008F5B44 /* DFRSSItem.h */,
-				A366355F1975A859008F5B44 /* DFRSSItem.m */,
-				A36635611975A86B008F5B44 /* DFBaseObject.h */,
-				A36635621975A86B008F5B44 /* DFBaseObject.m */,
-				A366352F197581E2008F5B44 /* DFAppDelegate.h */,
-				A3663530197581E2008F5B44 /* DFAppDelegate.m */,
-				A3663538197581E2008F5B44 /* DFViewController.h */,
-				A3663539197581E2008F5B44 /* DFViewController.m */,
-				A36635581975878E008F5B44 /* DFXMLParser.h */,
-				A36635591975878E008F5B44 /* DFXMLParser.m */,
+				FBB50BD61979243900558A8E /* presentation */,
+				FBB50BD51979243400558A8E /* core */,
 				A366353B197581E2008F5B44 /* Images.xcassets */,
 				A3663527197581E2008F5B44 /* Supporting Files */,
 			);
@@ -182,6 +166,86 @@
 				A366354B197581E2008F5B44 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FBB50BD51979243400558A8E /* core */ = {
+			isa = PBXGroup;
+			children = (
+				FBB50BDA1979248300558A8E /* common */,
+				FBB50BD91979247000558A8E /* parsing */,
+				FBB50BD81979246600558A8E /* network */,
+				FBB50BD71979245500558A8E /* bo */,
+			);
+			name = core;
+			sourceTree = "<group>";
+		};
+		FBB50BD61979243900558A8E /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				FBB50BDC197924A000558A8E /* custom controls */,
+				FBB50BDB1979249500558A8E /* viewcontrollers */,
+			);
+			name = presentation;
+			sourceTree = "<group>";
+		};
+		FBB50BD71979245500558A8E /* bo */ = {
+			isa = PBXGroup;
+			children = (
+				A36635611975A86B008F5B44 /* DFBaseObject.h */,
+				A36635621975A86B008F5B44 /* DFBaseObject.m */,
+				A366355B19759686008F5B44 /* DFRSSChannel.h */,
+				A366355C19759686008F5B44 /* DFRSSChannel.m */,
+				A366355E1975A859008F5B44 /* DFRSSItem.h */,
+				A366355F1975A859008F5B44 /* DFRSSItem.m */,
+			);
+			name = bo;
+			sourceTree = "<group>";
+		};
+		FBB50BD81979246600558A8E /* network */ = {
+			isa = PBXGroup;
+			children = (
+				FB2A82991977CE2900BE90A2 /* DFConnector.h */,
+				FB2A829A1977CE2900BE90A2 /* DFConnector.m */,
+			);
+			name = network;
+			sourceTree = "<group>";
+		};
+		FBB50BD91979247000558A8E /* parsing */ = {
+			isa = PBXGroup;
+			children = (
+				A36635581975878E008F5B44 /* DFXMLParser.h */,
+				A36635591975878E008F5B44 /* DFXMLParser.m */,
+			);
+			name = parsing;
+			sourceTree = "<group>";
+		};
+		FBB50BDA1979248300558A8E /* common */ = {
+			isa = PBXGroup;
+			children = (
+				A3C629D31976D8E70091A944 /* DFDefs.h */,
+				A3C629D41976D8E70091A944 /* DFDefs.m */,
+				A366352F197581E2008F5B44 /* DFAppDelegate.h */,
+				A3663530197581E2008F5B44 /* DFAppDelegate.m */,
+			);
+			name = common;
+			sourceTree = "<group>";
+		};
+		FBB50BDB1979249500558A8E /* viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				FB2A829C1977EC5D00BE90A2 /* DFRSSItemDetailViewController.h */,
+				FB2A829D1977EC5D00BE90A2 /* DFRSSItemDetailViewController.m */,
+				A3663538197581E2008F5B44 /* DFViewController.h */,
+				A3663539197581E2008F5B44 /* DFViewController.m */,
+			);
+			name = viewcontrollers;
+			sourceTree = "<group>";
+		};
+		FBB50BDC197924A000558A8E /* custom controls */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "custom controls";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

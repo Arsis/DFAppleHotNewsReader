@@ -10,6 +10,8 @@
 #import "DFViewController.h"
 @implementation DFAppDelegate
 
+@synthesize window = _window;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     DFViewController *viewController = [[DFViewController alloc]init];
@@ -53,6 +55,7 @@
 }
 
 -(void)dealloc {
+    [_window release];
     [super dealloc];
 }
 

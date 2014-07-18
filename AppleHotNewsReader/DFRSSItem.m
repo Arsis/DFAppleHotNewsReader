@@ -19,20 +19,16 @@
     return self;
 }
 
--(void)updateWithDictionary:(NSDictionary *)dictionary {
-    
-}
-
 -(void)dealloc {
-    [super dealloc];
     [_link release];
     [_publicationDateString release];
     [_title release];
     [_text release];
-    self.link = nil;
-    self.publicationDateString = nil;
-    self.title = nil;
-    self.text = nil;
+    _link = nil;
+    _publicationDateString = nil;
+    _title = nil;
+    _text = nil;
+    [super dealloc];
 }
 
 @end

@@ -16,33 +16,41 @@
 
 -(id)initWithDictionary:(NSDictionary *)dictionary {
     if (self = [super initWithDictionary:dictionary]) {
-        NSDictionary *channelInfo = [[dictionary objectForKey:kRSSKey] objectForKey:kChannelKey];
-        _category = [channelInfo objectForKey:kCategoryKey][kTextKey];
-        _copyright = [channelInfo objectForKey:kCopyrightKey][kTextKey];
-        NSArray *itemsInfo = [channelInfo objectForKey:kItemsKey];
-        _items = [[NSMutableArray alloc] initWithCapacity:itemsInfo.count];
-        for (NSDictionary *itemInfo in itemsInfo) {
-            DFRSSItem *item = [DFRSSItem objectWithDictionary:itemInfo];
-            [_items addObject:item];
-        }
+        [self updateWithDictionary:dictionary];
     }
     return self;
 }
+
+-(void)updateWithDictionary:(NSDictionary *)dictionary {
+    NSDictionary *channelInfo = [[dictionary objectForKey:kRSSKey] objectForKey:kChannelKey];
+    self.category = [channelInfo objectForKey:kCategoryKey][kTextKey];
+    self.copyright = [channelInfo objectForKey:kCopyrightKey][kTextKey];
+    NSArray *itemsInfo = [channelInfo objectForKey:kItemsKey];
+    if (!self.items) {
+       _items =[[NSMutableArray arrayWithCapacity:itemsInfo.count] retain];
+    }
+    else {
+        [_items removeAllObjects];
+    }
+    for (NSDictionary *itemInfo in itemsInfo) {
+        DFRSSItem *item = [[DFRSSItem alloc]initWithDictionary:itemInfo];
+        [_items addObject:item];
+        [item release];
+    }
+}
+
 +(id)channelWithDictionary:(NSDictionary *)dictionary {
     return [[[self alloc]initWithDictionary:dictionary] autorelease];
 }
 
 -(void)dealloc {
-    [super dealloc];
     [_category release];
     [_copyright release];
-    [_descriptionText release];
-    [_items removeAllObjects];
     [_items release];
-    self.category = nil;
-    self.copyright = nil;
-    self.descriptionText = nil;
-    self.items = nil;
+    _category = nil;
+    _copyright = nil;
+    _items = nil;
+    [super dealloc];
 }
 
 @end

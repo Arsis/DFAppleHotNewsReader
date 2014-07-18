@@ -21,6 +21,9 @@
 
 @synthesize currentRSSItem = _currentRSSItem;
 @synthesize webView = _webView;
+@synthesize activityIndicatorView = _activityIndicatorView;
+@synthesize retryButton = _retryButton;
+@synthesize errorMessageLabel = _errorMessageLabel;
 
 #pragma mark - Init/Dealloc
 
@@ -34,9 +37,14 @@
 }
 
 -(void)dealloc {
-    [super dealloc];
+    _errorMessageLabel = nil;
+    _retryButton = nil;
+    _connector = nil;
+    _activityIndicatorView = nil;
+    _webView = nil;
     [_currentRSSItem release];
     _currentRSSItem = nil;
+    [super dealloc];
 }
 
 #pragma mark - ViewController lifecycle
@@ -55,6 +63,9 @@
     [self.view addSubview:webView];
     self.webView = webView;
     [webView release];
+    
+    NSLog(@"web retain count before %d",self.webView.retainCount);
+    
     UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     activityIndicator.hidesWhenStopped = YES;
     [self.view insertSubview:activityIndicator
@@ -69,15 +80,20 @@
     [retryButton addTarget:self
                     action:@selector(loadData)
           forControlEvents:UIControlEventTouchUpInside];
+    [retryButton setTitleColor:[UIColor blueColor]
+                      forState:UIControlStateNormal];
+    [retryButton setBackgroundColor:[UIColor lightGrayColor]];
+    [retryButton setFrame:CGRectMake(0, 0, 100.0f, 50.0f)];
     [self.view insertSubview:retryButton
                 belowSubview:webView];
     
     self.retryButton = retryButton;
     
     UILabel *errorMessageLabel = [[UILabel alloc] init];
-    errorMessageLabel.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
+    errorMessageLabel.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleRightMargin;
     errorMessageLabel.textAlignment = NSTextAlignmentCenter;
     errorMessageLabel.backgroundColor = [UIColor clearColor];
+    errorMessageLabel.numberOfLines = 0;
     [self.view insertSubview:errorMessageLabel
                 belowSubview:webView];
     
@@ -95,13 +111,20 @@
     [self loadData];
 }
 
--(void)viewDidUnload {
-    [super viewDidUnload];
-    [self.webView removeFromSuperview];
-    [self.activityIndicatorView removeFromSuperview];
-    self.connector = nil;
-    self.activityIndicatorView = nil;
-    self.webView = nil;
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [_webView loadHTMLString:@""
+                     baseURL:nil];
+    [_webView stopLoading];
+    _webView.delegate = nil;
+    [_webView removeFromSuperview];
+    [_activityIndicatorView removeFromSuperview];
+    [_retryButton removeFromSuperview];
+    [_errorMessageLabel removeFromSuperview];
 }
 
 - (void)didReceiveMemoryWarning
@@ -128,9 +151,6 @@
 #pragma mark - UIWebViewDelegate
 
 -(void)webViewDidStartLoad:(UIWebView *)webView {
-    webView.hidden = YES;
-    self.retryButton.hidden = YES;
-    self.errorMessageLabel.hidden = YES;
     [self.activityIndicatorView startAnimating];
 }
 
@@ -146,6 +166,10 @@
 #pragma mark - Target/Action
 
 -(void)loadData {
+    _webView.hidden = YES;
+    self.retryButton.hidden = YES;
+    self.errorMessageLabel.hidden = YES;
+    [self.activityIndicatorView startAnimating];
     if (!self.currentRSSItem.text) {
         [self.connector loadStringFromURL:[NSURL URLWithString:self.currentRSSItem.link]];
     }
@@ -158,11 +182,35 @@
 
 -(void)failWithError:(NSError *)error {
     self.webView.hidden = YES;
+    [self.activityIndicatorView stopAnimating];
     self.retryButton.hidden = NO;
+    self.retryButton.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
     self.errorMessageLabel.text = [error localizedDescription];
-    [self.errorMessageLabel sizeToFit];
+    self.errorMessageLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
     self.errorMessageLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), 80.0f);
     self.errorMessageLabel.hidden = NO;
+}
+
+#pragma mark - Autorotation
+
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    [self adjustUI];
+    return YES;
+}
+
+-(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self adjustUI];
+}
+
+-(BOOL)shouldAutorotate  {
+    [self adjustUI];
+    return YES;
+}
+
+-(void)adjustUI {
+    self.retryButton.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
+    self.errorMessageLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+    self.errorMessageLabel.center = CGPointMake(CGRectGetMidX(self.view.frame), 80.0f);
 }
 
 @end

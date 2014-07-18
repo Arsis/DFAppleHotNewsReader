@@ -17,4 +17,5 @@
 -(id)initWithDictionary:(NSDictionary *)dictionary;
 +(id)channelWithDictionary:(NSDictionary *)dictionary;
 
+-(void)updateWithDictionary:(NSDictionary *)dictionary;
 @end

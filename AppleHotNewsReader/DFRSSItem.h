@@ -14,6 +14,4 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *text;
 
--(void)updateWithDictionary:(NSDictionary *)dictionary;
-
 @end

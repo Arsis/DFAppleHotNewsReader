@@ -21,4 +21,10 @@
     return [[[self alloc]initWithDictionary:dictionary] autorelease];
 }
 
+-(void)dealloc {
+    [_descriptionText release];
+    _descriptionText = nil;
+    [super dealloc];
+}
+
 @end

@@ -10,9 +10,9 @@
 
 @class DFConnector;
 @protocol DFConnectorDelegate <NSObject>
-
 -(void)connector:(DFConnector *)connector didFinishLoadingWithObject:(id)object error:(NSError *)error;
-
+@optional
+-(void)connectorDidStartLoading:(DFConnector *)connector;
 @end
 
 @interface DFConnector : NSObject

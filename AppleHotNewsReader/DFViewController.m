@@ -11,6 +11,9 @@
 #import "DFConnector.h"
 #import "DFRSSItemDetailViewController.h"
 static NSString *const cellId = @"feed.cell.id";
+static NSString *const kHotNewsURL = @"https://www.apple.com/main/rss/hotnews/hotnews.rss";
+static CGFloat const kCellVerticalSpace = 20.0f;
+static CGFloat const kCellHorizontalSpace = 45.0f;
 
 @interface DFViewController () <UITableViewDataSource, UITableViewDelegate, DFConnectorDelegate>
 @property (nonatomic, assign) UITableView *feedTableView;
@@ -20,22 +23,25 @@ static NSString *const cellId = @"feed.cell.id";
 
 @implementation DFViewController
 
+@synthesize feedTableView = _feedTableView;
+@synthesize currentChannel = _currentChannel;
+@synthesize connector = _connector;
+
 -(void)dealloc {
-    [super dealloc];
     [self.feedTableView removeFromSuperview];
     [_currentChannel release];
     _currentChannel = nil;
     [_connector release];
     _connector = nil;
+    [super dealloc];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor redColor];
+    self.navigationItem.title = @"Apple hot news";
+    self.navigationController.navigationBar.translucent = NO;
     self.connector = [DFConnector sharedInstance];
-    NSURL *url = [NSURL URLWithString:@"https://www.apple.com/main/rss/hotnews/hotnews.rss"];
-    [self.connector loadDataFromURL:url];
     if (!self.feedTableView) {
         UITableView *feedTableView = [[UITableView alloc]initWithFrame:CGRectZero
                                                                  style:UITableViewStylePlain];
@@ -46,6 +52,12 @@ static NSString *const cellId = @"feed.cell.id";
         self.feedTableView = feedTableView;
         [feedTableView release];
     }
+    [self loadData];
+}
+
+-(void)loadData {
+    NSURL *url = [NSURL URLWithString:kHotNewsURL];
+    [self.connector loadDataFromURL:url];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -62,11 +74,21 @@ static NSString *const cellId = @"feed.cell.id";
 
 #pragma mark - ConnectorDelegate
 
+-(void)connectorDidStartLoading:(DFConnector *)connector {
+    self.navigationItem.rightBarButtonItem = [self activityIndicatorBarButtonItem];
+}
+
 -(void)connector:(DFConnector *)connector didFinishLoadingWithObject:(id)object error:(NSError *)error {
+    self.navigationItem.rightBarButtonItem = [self refreshBarButtonItem];
     if (object) {
-        DFRSSChannel *channel = [[DFRSSChannel alloc]initWithDictionary:object];
-        self.currentChannel = channel;
-        [channel release];
+        if (_currentChannel) {
+            [_currentChannel updateWithDictionary:object];
+        }
+        else {
+            DFRSSChannel *channel = [[DFRSSChannel alloc]initWithDictionary:object];
+            self.currentChannel = channel;
+            [channel release];
+        }
         [self.feedTableView reloadData];
     }
     else if (error) {
@@ -103,23 +125,25 @@ static NSString *const cellId = @"feed.cell.id";
     DFRSSItem *item = [self.currentChannel.items objectAtIndex:indexPath.row];
     CGSize suggestedTextLabelSize;
     CGSize suggestedDetailTextLabelSize;
-    if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_6_1) {
-        suggestedTextLabelSize = [item.title sizeWithFont:[UIFont boldSystemFontOfSize:18.0f]
-                               constrainedToSize:CGSizeMake(CGRectGetWidth(tableView.bounds) - 45, FLT_MAX)
-                                   lineBreakMode:NSLineBreakByWordWrapping];
-        suggestedDetailTextLabelSize = [item.descriptionText sizeWithFont:[UIFont boldSystemFontOfSize:12.0f]
-                                                        constrainedToSize:CGSizeMake(CGRectGetWidth(tableView.bounds) - 45, FLT_MAX)
-                                                            lineBreakMode:NSLineBreakByWordWrapping];
+    if (NSFoundationVersionNumber > floor(NSFoundationVersionNumber_iOS_6_1)) {
+        suggestedTextLabelSize = [item.title boundingRectWithSize:CGSizeMake(CGRectGetWidth(tableView.bounds) - kCellHorizontalSpace, FLT_MAX)
+                                          options:NSStringDrawingUsesLineFragmentOrigin
+                                       attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18.0f]}
+                                          context:nil].size;
+        suggestedDetailTextLabelSize = [item.descriptionText boundingRectWithSize:CGSizeMake(CGRectGetWidth(tableView.bounds) - kCellHorizontalSpace, FLT_MAX)
+                                                                options:NSStringDrawingUsesLineFragmentOrigin
+                                                             attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0f]}
+                                                                context:nil].size;;
     }
     else {
-        suggestedTextLabelSize = [item.title sizeWithFont:[UIFont systemFontOfSize:18.0f]
-                               constrainedToSize:CGSizeMake(CGRectGetWidth(tableView.bounds) - 45, FLT_MAX)
-                                   lineBreakMode:NSLineBreakByWordWrapping];
-        suggestedDetailTextLabelSize = [item.descriptionText sizeWithFont:[UIFont systemFontOfSize:12.0f]
-                                                        constrainedToSize:CGSizeMake(CGRectGetWidth(tableView.bounds) - 45, FLT_MAX)
+        suggestedTextLabelSize = [item.title sizeWithFont:[UIFont boldSystemFontOfSize:18.0f]
+                                        constrainedToSize:CGSizeMake(CGRectGetWidth(tableView.bounds) - kCellHorizontalSpace, FLT_MAX)
+                                            lineBreakMode:NSLineBreakByWordWrapping];
+        suggestedDetailTextLabelSize = [item.descriptionText sizeWithFont:[UIFont systemFontOfSize:14.0f]
+                                                        constrainedToSize:CGSizeMake(CGRectGetWidth(tableView.bounds) - kCellHorizontalSpace, FLT_MAX)
                                                             lineBreakMode:NSLineBreakByWordWrapping];
     }
-    return MAX(self.feedTableView.rowHeight, suggestedTextLabelSize.height + suggestedDetailTextLabelSize.height + 20.0f);
+    return MAX(self.feedTableView.rowHeight, suggestedTextLabelSize.height + suggestedDetailTextLabelSize.height + kCellVerticalSpace);
 }
 
 #pragma mark - UITableViewDelegate
@@ -130,6 +154,23 @@ static NSString *const cellId = @"feed.cell.id";
     [self.navigationController pushViewController:detailViewController
                                          animated:YES];
     [detailViewController release];
+}
+
+#pragma mark - UIBarButtonItemHelpers
+
+-(UIBarButtonItem *)activityIndicatorBarButtonItem {
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [activityIndicator startAnimating];
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc]initWithCustomView:activityIndicator];
+    [activityIndicator release];
+    return [barButtonItem autorelease];
+}
+
+-(UIBarButtonItem *)refreshBarButtonItem {
+    UIBarButtonItem *refreshBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                                                                                         target:self
+                                                                                         action:@selector(loadData)];
+    return [refreshBarButtonItem autorelease];
 }
 
 @end

@@ -36,12 +36,12 @@
 
 
 -(void)dealloc {
-    [super dealloc];
     _delegate = nil;
     [_currentConnection release];
     _currentConnection = nil;
     [_dataBuffer release];
     _dataBuffer = nil;
+    [super dealloc];
 }
 
 -(void)loadDataFromURL:(NSURL *)url {
@@ -59,6 +59,9 @@
     NSURLConnection *connection = [NSURLConnection connectionWithRequest:request
                                                                 delegate:self];
     [connection start];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(connectorDidStartLoading:)]) {
+        [self.delegate connectorDidStartLoading:self];
+    }
     self.currentConnection = connection;
 }
 
