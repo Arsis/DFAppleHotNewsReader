@@ -9,6 +9,11 @@
 #import "DFRSSItemDetailViewController.h"
 #import "DFRSSItem.h"
 #import "DFConnector.h"
+
+static CGFloat const kLabelVerticalOffset = 80.0f;
+static CGFloat const kButtonWidth = 100.0f;
+static CGFloat const kButtonHeight = 50.0f;
+
 @interface DFRSSItemDetailViewController () <DFConnectorDelegate, UIWebViewDelegate>
 @property (nonatomic, assign) DFConnector *connector;
 @property (nonatomic, assign) UIWebView *webView;
@@ -83,7 +88,7 @@
     [retryButton setTitleColor:[UIColor blueColor]
                       forState:UIControlStateNormal];
     [retryButton setBackgroundColor:[UIColor lightGrayColor]];
-    [retryButton setFrame:CGRectMake(0, 0, 100.0f, 50.0f)];
+    [retryButton setFrame:CGRectMake(0, 0, kButtonWidth, kButtonHeight)];
     [self.view insertSubview:retryButton
                 belowSubview:webView];
     
@@ -107,7 +112,7 @@
     self.webView.frame = self.view.bounds;
     self.activityIndicatorView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
     self.retryButton.center = self.activityIndicatorView.center;
-    self.errorMessageLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), 80.0f);
+    self.errorMessageLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), kLabelVerticalOffset);
     [self loadData];
 }
 
@@ -187,7 +192,7 @@
     self.retryButton.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
     self.errorMessageLabel.text = [error localizedDescription];
     self.errorMessageLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
-    self.errorMessageLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), 80.0f);
+    self.errorMessageLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), kLabelVerticalOffset);
     self.errorMessageLabel.hidden = NO;
 }
 
@@ -210,7 +215,7 @@
 -(void)adjustUI {
     self.retryButton.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
     self.errorMessageLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
-    self.errorMessageLabel.center = CGPointMake(CGRectGetMidX(self.view.frame), 80.0f);
+    self.errorMessageLabel.center = CGPointMake(CGRectGetMidX(self.view.frame), kLabelVerticalOffset);
 }
 
 @end
